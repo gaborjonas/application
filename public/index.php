@@ -23,7 +23,8 @@ $matcher = new UrlMatcher($routes, $context);
 $controllerResolver = new ControllerResolver();
 $argumentResolver = new ArgumentResolver();
 
-try {
+try
+{
     $request->attributes->add($matcher->match($request->getPathInfo()));
 
     $controller = $controllerResolver->getController($request);

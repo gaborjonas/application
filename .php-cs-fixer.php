@@ -13,5 +13,8 @@ return $config
         'array_syntax' => ['syntax' => 'short'],
     ])
     ->setFinder(PhpCsFixer\Finder::create()
-        ->in(__DIR__)
+        ->in([
+            'src',
+            'public',
+        ])
     );
