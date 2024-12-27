@@ -42,7 +42,7 @@ jobs:
       - name: Run php-cs-fixer
         env:
           PHP_CS_FIXER_IGNORE_ENV: 1
-        run: vendor/bin/php-cs-fixer check
+        run: vendor/bin/php-cs-fixer check --diff
 
       - name: Run PHPStan
         run: vendor/bin/phpstan --error-format=github
