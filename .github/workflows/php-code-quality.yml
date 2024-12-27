@@ -1,8 +1,26 @@
 name: PHP code quality
-on: [push, pull_request]
+on: [ push, pull_request ]
 jobs:
   Explore-GitHub-Actions:
     name: PHP code quality
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv
+          coverage: none
+          tools: composer
+
+      - name: Install composer packages
+        run: composer install
+
+  php-cs-fixer:
+    name: PHP-cs-fixer
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository code
@@ -24,8 +42,6 @@ jobs:
           PHP_CS_FIXER_IGNORE_ENV: 1
         run: vendor/bin/php-cs-fixer check
 
-      - name: Run PHPStan
-        run: vendor/bin/phpstan --error-format=github
   phpstan:
     name: PHPStan
     runs-on: ubuntu-latest
@@ -40,6 +56,9 @@ jobs:
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv
           coverage: none
           tools: composer
+
+      - name: Install composer packages
+        run: composer install
 
       - name: Run PHPStan
         run: vendor/bin/phpstan --error-format=github
