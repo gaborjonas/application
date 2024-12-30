@@ -2,3 +2,4 @@
 /node_modules
 .idea
 .php-cs-fixer.cache
+.phpunit.cache
