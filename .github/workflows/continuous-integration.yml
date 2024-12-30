@@ -80,8 +80,6 @@ jobs:
           PHP_CS_FIXER_IGNORE_ENV: 1
         run: vendor/bin/php-cs-fixer check --diff
 
-      - name: Run PHPStan
-        run: vendor/bin/phpstan --error-format=github
   phpstan:
     name: PHP static analysis
     runs-on: ubuntu-latest
