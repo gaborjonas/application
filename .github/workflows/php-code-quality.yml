@@ -63,11 +63,12 @@ jobs:
       - name: ESLint
         run: npx eslint
   phpunit:
-    name: PHP coding standards
+    name: PHP Tests
     runs-on: ubuntu-latest
     strategy:
       matrix:
         php-version: [ '8.2' ]
+    needs: php-cs-fixer
     steps:
       - name: Checkout repository code
         uses: actions/checkout@v4
