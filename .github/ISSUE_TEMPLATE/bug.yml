@@ -26,7 +26,14 @@ body:
         2.
         3.
         ...
-      render: bash
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional information
+      placeholder: Page url, screenshot, vieo recording, etc
     validations:
       required: true
 
