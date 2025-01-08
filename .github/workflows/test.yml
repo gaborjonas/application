@@ -17,7 +17,7 @@ jobs:
           backend:
             - 'backend/**'
           frontend:
-            - 'frontend/**'
+            - 'src/js/**'
   
   backend:
     needs: changes
